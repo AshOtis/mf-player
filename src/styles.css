@@ -7,7 +7,7 @@
   --mfp-green: #1beb9e; --mfp-purple: #b462ff; --mfp-blue: #18b6ff;
   --mfp-pink: #ff45b4; --mfp-orange: #ff9528; --mfp-yellow: #dddd25;
   --mfp-sel-bg: var(--mfp-green); --mfp-sel-fg: #1a1a1a; --mfp-track: #333;
-  --mfp-font: "MFP Plex Mono", "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --mfp-font: "IBM Plex Mono", var(--font-monospace), ui-monospace, Menlo, Consolas, monospace;
 }
 .mfp-view[data-theme="invert"] {
   --mfp-bg: #e5e5e5; --mfp-text: #555; --mfp-dim: #777; --mfp-hi: #1a1a1a;
