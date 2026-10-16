@@ -1,0 +1,138 @@
+/* MFP Player (unofficial) — fonts: IBM Plex Mono, SIL Open Font License 1.1 */
+/*@FONTS@*/
+
+/* ---------- Themes ---------- */
+.mfp-view, .mfp-view[data-theme="mfp"] {
+  --mfp-bg: #1a1a1a; --mfp-text: #898989; --mfp-dim: #737373; --mfp-hi: #e1e1e1;
+  --mfp-green: #1beb9e; --mfp-purple: #b462ff; --mfp-blue: #18b6ff;
+  --mfp-pink: #ff45b4; --mfp-orange: #ff9528; --mfp-yellow: #dddd25;
+  --mfp-sel-bg: var(--mfp-green); --mfp-sel-fg: #1a1a1a; --mfp-track: #333;
+  --mfp-font: "MFP Plex Mono", "IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+.mfp-view[data-theme="invert"] {
+  --mfp-bg: #e5e5e5; --mfp-text: #555; --mfp-dim: #777; --mfp-hi: #1a1a1a;
+  --mfp-green: #0b9a66; --mfp-purple: #8a3ee0; --mfp-blue: #0a7cc0;
+  --mfp-pink: #d1208a; --mfp-orange: #c86400; --mfp-yellow: #8a8a00;
+  --mfp-sel-bg: var(--mfp-green); --mfp-sel-fg: #fff; --mfp-track: #bbb;
+}
+.mfp-view[data-theme="mono"] {
+  --mfp-bg: #000; --mfp-text: #9a9a9a; --mfp-dim: #5e5e5e; --mfp-hi: #fff;
+  --mfp-green: #fff; --mfp-purple: #bdbdbd; --mfp-blue: #bdbdbd;
+  --mfp-pink: #fff; --mfp-orange: #fff; --mfp-yellow: #9a9a9a;
+  --mfp-sel-bg: #fff; --mfp-sel-fg: #000; --mfp-track: #333;
+}
+.mfp-view[data-theme="amber"] {
+  --mfp-bg: #110b02; --mfp-text: #b27a1c; --mfp-dim: #7a5414; --mfp-hi: #ffc04d;
+  --mfp-green: #ffb000; --mfp-purple: #e09a2a; --mfp-blue: #ffcf70;
+  --mfp-pink: #ff8a00; --mfp-orange: #ff9d1a; --mfp-yellow: #ffd27a;
+  --mfp-sel-bg: #ffb000; --mfp-sel-fg: #110b02; --mfp-track: #3a2808;
+}
+/* Follows the vault's theme */
+.mfp-view[data-theme="obsidian"] {
+  --mfp-bg: var(--background-primary); --mfp-text: var(--text-muted); --mfp-dim: var(--text-faint); --mfp-hi: var(--text-normal);
+  --mfp-green: var(--color-green); --mfp-purple: var(--color-purple); --mfp-blue: var(--color-blue);
+  --mfp-pink: var(--color-pink); --mfp-orange: var(--color-orange); --mfp-yellow: var(--color-yellow);
+  --mfp-sel-bg: var(--interactive-accent); --mfp-sel-fg: var(--text-on-accent); --mfp-track: var(--background-modifier-border);
+  --mfp-font: var(--font-monospace);
+}
+
+/* ---------- Base ---------- */
+.workspace-leaf-content[data-type="mfp-player-view"] .view-content.mfp-view,
+.mfp-view {
+  background: var(--mfp-bg);
+  color: var(--mfp-text);
+  font-family: var(--mfp-font);
+  font-size: 13px;
+  line-height: 1.75;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+.mfp-view ::selection { background: var(--mfp-hi); color: var(--mfp-bg); }
+.mfp-view [hidden][hidden] { display: none; }
+
+.mfp-view .mfp-btn {
+  /* explicit reset (Obsidian styles buttons heavily) */
+  -webkit-appearance: none; appearance: none;
+  display: inline; box-sizing: content-box; width: auto; height: auto; min-height: 0; margin: 0; padding: 0;
+  background: none; border: 0; border-radius: 0; box-shadow: none; outline: none;
+  font: inherit; letter-spacing: inherit; text-align: inherit; text-transform: none;
+  color: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.mfp-view .mfp-btn.mfp-btn:hover,
+.mfp-view .mfp-btn.mfp-btn:focus-visible { background: var(--mfp-hover, var(--mfp-hi)); color: var(--mfp-bg); }
+.mfp-view .mfp-btn.mfp-btn:disabled { opacity: .45; cursor: default; background: none; color: inherit; }
+.mfp-view .c-green  { color: var(--mfp-green);  --mfp-hover: var(--mfp-green); }
+.mfp-view .c-purple { color: var(--mfp-purple); --mfp-hover: var(--mfp-purple); }
+.mfp-view .c-blue   { color: var(--mfp-blue);   --mfp-hover: var(--mfp-blue); }
+.mfp-view .c-pink   { color: var(--mfp-pink);   --mfp-hover: var(--mfp-pink); }
+.mfp-view .c-orange { color: var(--mfp-orange); --mfp-hover: var(--mfp-orange); }
+.mfp-view .c-yellow { color: var(--mfp-yellow); --mfp-hover: var(--mfp-yellow); }
+.mfp-view .mfp-dim, .mfp-view .mfp-comment { color: var(--mfp-dim); }
+
+.mfp-view .mfp-header {
+  display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0 10px;
+  padding: 12px 16px 0; font-size: 12px;
+}
+.mfp-view .mfp-actions .mfp-btn { margin-left: 6px; }
+
+/* ---------- ASCII EQ ---------- */
+.mfp-view .mfp-viz {
+  margin: 8px 16px 0; padding: 0; background: none; border: 0;
+  font: inherit; font-size: 13px; line-height: 1.05; color: inherit;
+  white-space: pre; overflow: hidden;
+}
+.mfp-view .mfp-viz .v0 { color: var(--mfp-orange); } .mfp-view .mfp-viz .v1 { color: var(--mfp-pink); }
+.mfp-view .mfp-viz .v2 { color: var(--mfp-yellow); } .mfp-view .mfp-viz .v3 { color: var(--mfp-green); }
+.mfp-view .mfp-viz .v4 { color: var(--mfp-blue); }   .mfp-view .mfp-viz .v5 { color: var(--mfp-purple); }
+.mfp-view .mfp-viz .pk { color: var(--mfp-dim); }
+
+/* ---------- Now playing ---------- */
+.mfp-view .mfp-now { padding: 14px 16px 10px; }
+.mfp-view .mfp-epno, .mfp-view .mfp-title { font-weight: 200; color: var(--mfp-hi); letter-spacing: 1px; line-height: 1.15; }
+.mfp-view .mfp-epno { font-size: 22px; }
+.mfp-view .mfp-title { font-size: 28px; margin-bottom: 10px; word-break: break-word; }
+
+.mfp-view input.mfp-seek {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 14px; margin: 0 0 4px; padding: 0; background: transparent; cursor: pointer; border: 0;
+}
+.mfp-view input.mfp-seek::-webkit-slider-runnable-track { height: 1px; background: var(--mfp-track); }
+.mfp-view input.mfp-seek::-webkit-slider-thumb {
+  -webkit-appearance: none; width: 7px; height: 13px; margin-top: -6px;
+  border: 0; border-radius: 0; background: var(--mfp-green); box-shadow: none;
+}
+
+.mfp-view .mfp-row { display: flex; flex-wrap: wrap; gap: 0 9px; }
+.mfp-view .mfp-right { margin-left: auto; }
+.mfp-view .mfp-links { margin-top: 8px; }
+.mfp-view .mfp-links .mfp-btn { margin-right: 6px; }
+.mfp-view .mfp-status-line { margin-top: 6px; }
+.mfp-view .mfp-status-line.is-error { color: var(--mfp-pink); }
+
+/* ---------- Episode list ---------- */
+.mfp-view .mfp-list {
+  list-style: none; margin: 0; padding: 4px 0 6px;
+  border-top: 1px dashed var(--mfp-track);
+}
+.mfp-view .mfp-list li {
+  display: flex; justify-content: space-between; gap: 8px;
+  padding: 0 16px; margin: 0; cursor: pointer;
+}
+.mfp-view .mfp-list li::marker { content: none; }
+.mfp-view .mfp-name { font-style: italic; color: var(--mfp-green); }
+.mfp-view .mfp-list li:hover .mfp-name { text-decoration: underline; }
+.mfp-view .mfp-list li.is-current .mfp-name { background: var(--mfp-sel-bg); color: var(--mfp-sel-fg); padding: 0 4px; margin-left: -4px; }
+.mfp-view .mfp-list li.is-done:not(.is-current) .mfp-name { color: var(--mfp-purple); }
+.mfp-view .mfp-list li.is-fav:not(.is-current) .mfp-name { color: var(--mfp-yellow); }
+.mfp-view .mfp-meta { font-size: 11px; color: var(--mfp-dim); white-space: nowrap; }
+.mfp-view .mfp-new { font-style: normal; color: var(--mfp-pink); margin-left: 8px; }
+.mfp-view .mfp-list li.is-current .mfp-new { color: var(--mfp-sel-fg); }
+
+.mfp-view .mfp-footer { padding: 6px 16px 14px; border-top: 1px dashed var(--mfp-track); font-size: 12px; line-height: 1.7; }
+
+/* ---------- Status bar ---------- */
+.mfp-status { cursor: pointer; font-variant-numeric: tabular-nums; }
+.mfp-status.mfp-hidden { display: none; }
+.mfp-view .mfp-right .mfp-btn + .mfp-btn { margin-left: 8px; }
