@@ -116,6 +116,11 @@ class MFPPlayerPlugin extends Plugin {
 
     this.addCommands();
     this.addSettingTab(new MFPSettingTab(this.app, this));
+
+    // One player at a time: pause when another AshOtis player (Static FM, Hi-Fi Tuner, Aurora MP3) starts
+    this.registerEvent(this.app.workspace.on('ashotis:playing', src => {
+      if (src !== 'mfp-player' && this.audio && !this.audio.paused && this.data.playTogether !== true) this.audio.pause();
+    }));
     this.setupMediaSession();
 
     this.app.workspace.onLayoutReady(async () => {
@@ -182,8 +187,8 @@ class MFPPlayerPlugin extends Plugin {
     if (this.vizEnabled) a.crossOrigin = 'anonymous';
     a.volume = this.data.volume;
     a.addEventListener('timeupdate', () => this.storePosition());
-    a.addEventListener('pause', () => { this.storePosition(true); this.setPlaybackState(); this.changed(); });
-    a.addEventListener('play', () => { this.setPlaybackState(); this.changed(); });
+    a.addEventListener('pause', () => { this.storePosition(true); this.setPlaybackState(); this.changed(); this.app.workspace.trigger('ashotis:stopped', 'mfp-player'); });
+    a.addEventListener('play', () => { this.setPlaybackState(); this.changed(); this.app.workspace.trigger('ashotis:playing', 'mfp-player'); });
     a.addEventListener('playing', () => this.onPlaying());
     a.addEventListener('error', () => this.onAudioError());
     a.addEventListener('ended', () => this.onEnded());
@@ -768,6 +773,10 @@ class MFPSettingTab extends PluginSettingTab {
     new Setting(containerEl).setName('Show in status bar')
       .setDesc('Current episode and time in the status bar. Click it to play or pause.')
       .addToggle(t => t.setValue(p.data.statusBar).onChange(v => { p.data.statusBar = v; p.save(); p.updateStatusBar(); }));
+
+    new Setting(containerEl).setName('Play alongside other players')
+      .setDesc('Off: starting Static FM, Hi-Fi Tuner or Aurora MP3 pauses MFP Player, and the other way round. On: let them play together.')
+      .addToggle(t => t.setValue(p.data.playTogether === true).onChange(v => { p.data.playTogether = v; p.save(); }));
 
     new Setting(containerEl).setName('Playlist order')
       .addDropdown(dd => dd.addOption('oldest', 'Oldest first').addOption('newest', 'Newest first')

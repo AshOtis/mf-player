@@ -1,7 +1,7 @@
 {
   "id": "mfp-player",
   "name": "MFP Player",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "minAppVersion": "1.4.0",
   "description": "Play the Music For Programming series as a playlist in your sidebar, with resume, favourites, themes and an ASCII EQ. Unofficial.",
   "author": "AshOtis",
