@@ -16,10 +16,10 @@
   --mfp-sel-bg: var(--mfp-green); --mfp-sel-fg: #fff; --mfp-track: #bbb;
 }
 .mfp-view[data-theme="mono"] {
-  --mfp-bg: #000; --mfp-text: #9a9a9a; --mfp-dim: #5e5e5e; --mfp-hi: #fff;
-  --mfp-green: #fff; --mfp-purple: #bdbdbd; --mfp-blue: #bdbdbd;
-  --mfp-pink: #fff; --mfp-orange: #fff; --mfp-yellow: #9a9a9a;
-  --mfp-sel-bg: #fff; --mfp-sel-fg: #000; --mfp-track: #333;
+  --mfp-bg: #000; --mfp-text: #9a9a9a; --mfp-dim: #5e5e5e; --mfp-hi: #d3d1cb;
+  --mfp-green: #d3d1cb; --mfp-purple: #a8a7a3; --mfp-blue: #a8a7a3;
+  --mfp-pink: #d3d1cb; --mfp-orange: #d3d1cb; --mfp-yellow: #9a9a9a;
+  --mfp-sel-bg: #d3d1cb; --mfp-sel-fg: #000; --mfp-track: #333;
 }
 .mfp-view[data-theme="amber"] {
   --mfp-bg: #110b02; --mfp-text: #b27a1c; --mfp-dim: #7a5414; --mfp-hi: #ffc04d;
