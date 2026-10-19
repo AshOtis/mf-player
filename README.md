@@ -35,7 +35,7 @@ Marked desktop only, because background audio on mobile is unreliable.
 
 Music For Programming makes no profit and carries no ads. Please consider their [Patreon](https://www.patreon.com/MusicForProgramming/about), and buy music from the artists you discover.
 
-If you like the plugin itself, you can [buy me a coffee](https://buymeacoffee.com/ashotis).
+If you like the plugin itself, you can [buy me a coffee](https://buymeacoffee.com/ashotis). Found a bug or have an idea? [Open an issue](https://github.com/AshOtis/mf-player/issues). It's the best way to reach me, and every report gets read.
 
 ## Building from source
 
